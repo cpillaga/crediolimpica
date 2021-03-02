@@ -1,0 +1,78 @@
+<h4 class="card-title">Ingrese los datos necesarios para generar el contrato</h4>
+<h6 class="card-subtitle">Todos los campos son necesarios</h6>
+<mat-horizontal-stepper labelPosition="bottom">
+    <mat-step>
+        <form #customer="ngForm">
+            <ng-template matStepLabel>Datos del Cliente</ng-template>
+            <app-customer (customerEvent)="reciveCustomer($event)"></app-customer>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form #vehicle="ngForm">
+            <ng-template matStepLabel>Datos del Veh&iacute;culo</ng-template>
+            <app-vehicle (vehicleEvent)="reciveVehicle($event)"></app-vehicle>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form #finantialData="ngForm">
+            <ng-template matStepLabel>Datos Financieros</ng-template>
+            <app-financial-date (financialDataEvent)="reciveFinancialData($event)"></app-financial-date>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form #submitContract="ngForm">
+            <ng-template matStepLabel>Confirmar</ng-template>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="code">C&oacute;digo del Contrato: <span class="danger">*</span></label>
+                        <input type="text" class="form-control required" [(ngModel)]="contrato.code" name="code" value="{{ contrato.code }}" [disabled]="statusCode" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label" for="date">Fecha del Contrato: <span class="danger">*</span></label>
+                        <input type="date" class="form-control required" id="date" placeholder="dd/mm/yyyy" [(ngModel)]="contrato.date" name="date">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="legalRepresentative">Representante Legal: <span class="danger">*</span></label>
+                        <input type="text" class="form-control required" id="legalRepresentative" [(ngModel)]="contrato.legalRepresentative" name="legalRepresentative" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label" for="finantialInstitution">Instituci&oacute; Finaciera: <span class="danger">*</span></label>
+                        <input type="text" class="form-control required" id="finantialInstitution" placeholder="" [(ngModel)]="contrato.finantialInstitution" name="finantialInstitution">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="ruc">RUC: <span class="danger">*</span></label>
+                        <input type="text" id="ruc" class="form-control required" [(ngModel)]="contrato.ruc" name="ruc" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="endoso">Endoso: <span class="danger">*</span></label>
+                        <select class="form-control custom-select required" id="endoso" [(ngModel)]="contrato.endoso" name="endoso">
+                                        <option value="SI">SI</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button mat-button (click)="saveContractinDB()" [hidden]="btnContractStatis">Guardar Contrato</button>
+                <button mat-button (click)="generateContracts()" [hidden]="btnPDFSattus">Generar Documentos</button>
+                <button mat-button matStepperPrevious>Regresar</button>
+            </div>
+        </form>
+    </mat-step>
+
+</mat-horizontal-stepper>

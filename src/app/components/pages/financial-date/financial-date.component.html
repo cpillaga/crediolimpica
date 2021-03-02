@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="subtotal">Subtotal: <span class="danger">*</span></label>
+            <input type="number" id="subtotal" class="form-control required" placeholder="0" [(ngModel)]="finacialData.subtotal" (input)="calcularTotal()" name="subtotal">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="iva">IVA: <span class="danger">*</span></label>
+            <input type="number" id="iva" class="form-control required" placeholder="12" [(ngModel)]="finacialData.iva" (input)="calcularTotal()" name="iva" value="{{ finacialData.iva }}">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="interes">IVA a pagar: </label>
+            <input type="number" id="interes" class="form-control required" placeholder="0" [(ngModel)]="finacialData.interes" name="interes" value="{{ finacialData.interes }}" disabled>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="total">Total: </label>
+            <input type="number" id="total" class="form-control required" placeholder="" [(ngModel)]="finacialData.total" name="total" value="{{ finacialData.total }}" disabled>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="entryAmount">Monto de Entrada: <span class="danger">*</span></label>
+            <input type="number" id="entryAmount" class="form-control required" placeholder="0" [(ngModel)]="finacialData.entryAmount" name="entryAmount" (input)="calcularMontoFinaciar()">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="amountFinanced">Monto a Financiar: <span class="danger">*</span></label>
+            <input type="number" id="amountFinanced" class="form-control required" placeholder="0" [(ngModel)]="finacialData.amountFinanced" name="amountFinanced" value="{{ finacialData.amountFinanced }}" disabled>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="legalCosts">Costas Legales: <span class="danger">*</span></label>
+            <input type="number" id="legalCosts" class="form-control required" placeholder="0" [(ngModel)]="finacialData.legalCosts" name="legalCosts" (input)="calcularTotalCredito()">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="deviceCosts">Costas Dispositivos: <span class="danger">*</span></label>
+            <input type="number" id="deviceCosts" class="form-control required" placeholder="0" [(ngModel)]="finacialData.deviceCosts" name="deviceCosts" (input)="calcularTotalCredito()">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="totalCredit">Total de Cr&eacute;dito: <span class="danger">*</span></label>
+            <input type="number" id="totalCredit" class="form-control required" placeholder="0" [(ngModel)]="finacialData.totalCredit" name="totalCredit" value="{{ finacialData.totalCredit }}" disabled>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="totalWithCosts">Total con Costos: <span class="danger">*</span></label>
+            <input type="number" id="totalWithCosts" class="form-control required" placeholder="0" [(ngModel)]="finacialData.totalWithCosts" name="totalWithCosts">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="term">Plazo (Meses): <span class="danger">*</span></label>
+            <input type="number" id="term" class="form-control required" placeholder="0" [(ngModel)]="finacialData.term" name="term">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="graceTime">Tiempo de Gracia: (dias)<span class="danger">*</span></label>
+            <input type="number" class="form-control required" id="graceTime" placeholder="0" [(ngModel)]="finacialData.graceTime" name="graceTime">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="accessoryCost">Costos de Accesorios: <span class="danger">*</span></label>
+            <input type="number" id="accessoryCost" class="form-control required" placeholder="0" [(ngModel)]="finacialData.accessoryCost" name="accessoryCost">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="endorsementDate">Fecha de Aprobaci&oacute;n: <span class="danger">*</span></label>
+            <input type="date" class="form-control required" id="endorsementDate" placeholder="dd/mm/yyyy" [(ngModel)]="finacialData.endorsementDate" name="endorsementDate">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="firstDueDate">Primera Fecha de Pago: <span class="danger">*</span></label>
+            <input type="date" class="form-control required" id="firstDueDate" placeholder="dd/mm/yyyy" [(ngModel)]="finacialData.firstDueDate" name="firstDueDate">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="lastDueDate">&Uacute;ltima Fecha de Pago (Aproximado): <span class="danger">*</span></label>
+            <input type="date" class="form-control required" id="lastDueDate" placeholder="dd/mm/yyyy" [(ngModel)]="finacialData.lastDueDate" name="lastDueDate">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="equityPercentage">Porcentage de Capital: <span class="danger">*</span></label>
+            <input type="number" id="equityPercentage" class="form-control required" placeholder="0" [(ngModel)]="finacialData.equityPercentage" name="equityPercentage">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="disposableIncome">Ingresos Disponibles: <span class="danger">*</span></label>
+            <input type="number" id="disposableIncome" class="form-control required" placeholder="0" [(ngModel)]="finacialData.disposableIncome" name="disposableIncome">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="referencePercentage">Porcentaje de Referencia: <span class="danger">*</span></label>
+            <input type="number" id="referencePercentage" class="form-control required" placeholder="0" [(ngModel)]="finacialData.referencePercentage" name="referencePercentage">
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-row-reverse">
+    <button mat-button matStepperNext (click)="sendFinancialData()">Siguiente</button>
+    <button mat-button matStepperPrevious>Regresar</button>
+</div>

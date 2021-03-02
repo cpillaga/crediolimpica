@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="chassisNumber">No. Chasis: <span class="danger">*</span></label>
+            <input type="text" id="chassisNumber" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.chassisNumber" name="chassisNumber" (input)="findVehicleByChasis()">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="engineNumber">No. Motor: <span class="danger">*</span></label>
+            <input type="text" id="engineNumber" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.engineNumber" name="engineNumber" value="{{ vehicle.engineNumber }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="brand">Marca: <span class="danger">*</span></label>
+            <input type="text" id="brand" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.brand" name="brand" value="{{ vehicle.brand }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="model">Modelo: <span class="danger">*</span></label>
+            <input type="text" id="model" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.model" name="model" value="{{ vehicle.model }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="clase">Clase: <span class="danger">*</span></label>
+            <input type="text" id="clase" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.class" name="clase" value="{{ vehicle.class }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="kind">Tipo: <span class="danger">*</span></label>
+            <input type="text" id="kind" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.kind" name="kind" value="{{ vehicle.kind }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="service">Servicio: <span class="danger">*</span></label>
+            <select class="form-control custom-select required" id="service" [(ngModel)]="vehicle.service" name="service" value="{{ vehicle.service }}">
+                <option value="PUBLICO">PUBLICO</option>
+                <option value="PRIVADO">PRIVADO</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="licensePlate">Placa: <span class="danger">*</span></label>
+            <input type="text" id="licensePlate" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.licensePlate" name="licensePlate" value="{{ vehicle.licensePlate }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="color">Color: <span class="danger">*</span></label>
+            <input type="text" id="color" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.color" name="color" value="{{ vehicle.color }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="year">A&ntilde;o: <span class="danger">*</span></label>
+            <input type="number" id="year" class="form-control required" placeholder="0" [(ngModel)]="vehicle.year" name="year" value="{{ vehicle.year }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="ramv">RAMV: <span class="danger">*</span></label>
+            <input type="text" id="ramv" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.ramv" name="ramv" value="{{ vehicle.ramv }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="country">Pa&iacute;s: <span class="danger">*</span></label>
+            <input type="text" id="country" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.country" name="country" value="{{ vehicle.country }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="tonnage">Tonelage: <span class="danger">*</span></label>
+            <input type="number" id="tonnage" class="form-control required" placeholder="0.00" [(ngModel)]="vehicle.tonnage" name="tonnage" value="{{ vehicle.tonnage }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="cylindrical">Cilindraje: <span class="danger">*</span></label>
+            <input type="number" id="cylindrical" class="form-control required" placeholder="0" [(ngModel)]="vehicle.cylindrical" name="cylindrical" value="{{ vehicle.cylindrical }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="fuel">Combustible: <span class="danger">*</span></label>
+            <input type="text" id="fuel" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.fuel" name="fuel" value="{{ vehicle.fuel }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="transportCooperative">Coop. Transporte: <span class="danger">*</span></label>
+            <input type="text" id="transportCooperative" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.transportCooperative" name="transportCooperative" value="{{ vehicle.transportCooperative }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="route">Ruta: <span class="danger">*</span></label>
+            <input type="text" id="route" class="form-control required" placeholder="" [(ngModel)]="vehicle.route" name="route" value="{{ vehicle.route }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="yearsServiceSecurity">Tiempo de Seguro (Meses): <span class="danger">*</span></label>
+            <input type="number" id="yearsServiceSecurity" class="form-control required" placeholder="0" [(ngModel)]="vehicle.yearsServiceSecurity" name="yearsServiceSecurity" value="{{ vehicle.yearsServiceSecurity }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="provinceLocation">Ubicaci&oacute;n Provincial: <span class="danger">*</span></label>
+            <input type="text" id="provinceLocation" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.provinceLocation" name="provinceLocation" value="{{ vehicle.provinceLocation }">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="cantonLocation">Ubicaci&oacute;n Cantonal: <span class="danger">*</span></label>
+            <input type="text" id="cantonLocation" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="vehicle.cantonLocation" name="cantonLocation" value="{{ vehicle.cantonLocation }}">
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-row-reverse">
+    <button mat-button matStepperNext (click)="sendVehicle()">Siguiente</button>
+    <button mat-button matStepperPrevious>Regresar</button>
+</div>

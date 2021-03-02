@@ -1,0 +1,59 @@
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User profile -->
+        <div class="user-profile" style="background: url(assets/images/background/images.png) no-repeat;">
+            <!-- User profile image -->
+            <div class="profile-img"> <img src="assets/images/perfil.png" style="height: 50px;" alt="user" /> </div>
+            <!-- User profile text-->
+            <p class="nav-small-cap" style="text-align: center; color: #ffffff; font-size: 24px;">
+                CREDIOLIMPICA
+            </p>
+            <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Ing. Carolina Rosales</a>
+                <div class="dropdown-menu animated flipInY">
+                    <p style="margin-left:6%;"><i class="ti-wallet"></i>GERENTE</p>
+                    <p style="margin-left:6%; "><i class="ti-email"></i> admin@gmail.com</p>
+                    <!-- <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                            <div class="dropdown-divider"></div> <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a> -->
+                </div>
+            </div>
+        </div>
+        <!-- End User profile text-->
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li routerLinkActive="router-link-active">
+                    <a class="waves-effect waves-dark" [routerLink]="['/home']" aria-expanded="false">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span class="hide-menu">PRINCIPAL </span>
+                    </a>
+                </li>
+                <li routerLinkActive="router-link-active">
+                    <a class="waves-effect waves-dark" [routerLink]="['/contract-list']" aria-expanded="false">
+                        <i class="mdi mdi-clipboard-text"></i>
+                        <span class="hide-menu">CONTRATOS</span>
+                    </a>
+                </li>
+                <li routerLinkActive="router-link-active">
+                    <a class="waves-effect waves-dark" [routerLink]="['/payment']" aria-expanded="false">
+                        <i class="mdi mdi-square-inc-cash"></i>
+                        <span class="hide-menu">PAGOS</span>
+                    </a>
+                </li>
+                <li routerLinkActive="router-link-active">
+                    <a class="waves-effect waves-dark" [routerLink]="['/employee-list']" aria-expanded="false">
+                        <i class="mdi mdi-account"></i>
+                        <span class="hide-menu">USUARIOS</span>
+                    </a>
+                </li>
+
+                <li class="nav-devider"></li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+
+</aside>

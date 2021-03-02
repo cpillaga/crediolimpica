@@ -1,0 +1,205 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="ci">C&eacute;dula: <span class="danger">*</span></label>
+            <input type="text" id="ci" class="form-control required" placeholder="" [(ngModel)]="customer.ci" name="ci" (input)="findCustomerByCI()">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="name">Nombres: <span class="danger">*</span></label>
+            <input type="text" id="name" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.name" name="name" value="{{ customer.name }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="lastName">Apellidos: <span class="danger">*</span></label>
+            <input type="text" id="lastName" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.lastName" name="lastName" value="{{ customer.lastName }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="birthplace">Lugar de Nacimiento: <span class="danger">*</span></label>
+            <input type="text" id="birthplace" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.birthplace" name="birthplace" value="{{ customer.birthplace }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="birthDate">Fecha de Nacimiento: <span class="danger">*</span></label>
+            <input type="date" class="form-control required" id="birthDate" placeholder="dd/mm/yyyy" [(ngModel)]="customer.birthDate" name="birthDate" value="{{ customer.birthDate }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="nationality">Nacionalidad: <span class="danger">*</span></label>
+            <input type="text" id="nationality" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.nationality" name="nationality" value="{{ customer.nationality }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="addres">Direcci&oacute;n: <span class="danger">*</span></label>
+            <input type="text" id="addres" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.addres" name="addres" value="{{ customer.addres }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="province">Provincia: <span class="danger">*</span></label>
+            <input type="text" id="province" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.province" name="province" value="{{ customer.province }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="canton">Cant&oacute;n: <span class="danger">*</span></label>
+            <input type="text" id="canton" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.canton" name="canton" value="{{ customer.canton }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="ocupation">Ocupaci&oacute;n: <span class="danger">*</span></label>
+            <input type="text" id="ocupation" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.ocupation" name="ocupation" value="{{ customer.ocupation }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="sex">G&eacute;nero: <span class="danger">*</span></label>
+            <select class="form-control custom-select required" id="sex" [(ngModel)]="customer.sex" name="sex" value="{{ customer.sex }}">
+                                            <option value="MASCULINO">MASCULINO</option>
+                                            <option value="MASCULINO">FEMENINO</option>
+                                        </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="phone">Tel&eacute;fono: <span class="danger">*</span></label>
+            <input type="text" id="phone" class="form-control required" placeholder="" [(ngModel)]="customer.phone" name="phone" value="{{ customer.phone }}">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="email">Correo Electr&oacute;nico: <span class="danger">*</span></label>
+            <input type="email" id="email" class="form-control required" oninput="this.value = this.value.toLowerCase()" placeholder="" [(ngModel)]="customer.email" name="email" value="{{ customer.email }}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="maritalStatus">Estado Civil: <span class="danger">*</span></label>
+            <select class="form-control custom-select required" id="maritalStatus" [(ngModel)]="customer.maritalStatus" name="maritalStatus" value="{{ customer.maritalStatus }}">
+                                            <option value="SOLTERO">SOLTERO/A</option>
+                                            <option value="CASADO">CASADO/A</option>
+                                            <option value="DIVORCIADO">DIVORCIADO/A</option>
+                                            <option value="VIUDO">VIUDO/A</option>
+                                        </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group" [hidden]='verifyMatriaslStatus()'>
+            <label for="separationProperty">Separaci&oacute;n Por Bienes: <span class="danger">*</span></label>
+            <select class="form-control custom-select required" id="separationProperty" [(ngModel)]="customer.separationProperty" name="separationProperty" value="{{ customer.separationProperty }}">
+                                        <option value="SI">SI</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+        </div>
+    </div>
+</div>
+<div [hidden]='verifyMatriaslStatus()'>
+    <hr>
+    <h3>Datos Conyugue</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="ci_spouse">C&eacute;dula: <span class="danger">*</span></label>
+                <input type="text" id="ci_spouse" class="form-control required" placeholder="" [(ngModel)]="customer.spouseModel.ci" name="ci_spouse" value="{{ customer.spouseModel.ci }}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name_spouse">Nombres: <span class="danger">*</span></label>
+                <input type="text" id="name_spouse" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.spouseModel.name" name="name_spouse" value="{{ customer.spouseModel.name }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="lastName_spouse">Apellidos: <span class="danger">*</span></label>
+                <input type="text" id="lastName_spouse" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.spouseModel.lastName" name="lastName_spouse" value="{{ customer.spouseModel.lastName }}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="birthplace_spouse">Lugar de Nacimiento: <span class="danger">*</span></label>
+                <input type="text" id="birthplace_spouse" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.spouseModel.birthplace" name="birthplace_spouse" value="{{ customer.spouseModel.birthplace }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="birthDate_spouse">Fecha de Nacimiento: <span class="danger">*</span></label>
+                <input type="date" class="form-control required" id="birthDate_spouse" placeholder="dd/mm/yyyy" [(ngModel)]="customer.spouseModel.birthDate" name="birthDate_spouse" value="{{ customer.spouseModel.birthDate}}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="nationality_spouse">Nacionalidad: <span class="danger">*</span></label>
+                <input type="text" id="nationality_spouse" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.spouseModel.nationality" name="nationality_spouse">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="addres_spouse">Direcci&oacute;n: <span class="danger">*</span></label>
+                <input type="text" id="addres_spouse" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.spouseModel.addres" name="addres_spouse" value="customer.spouseModel.addres">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ocupation_spouse">Ocupaci&oacute;n: <span class="danger">*</span></label>
+                <input type="text" id="ocupation_spouse" class="form-control required" oninput="this.value = this.value.toUpperCase()" placeholder="" [(ngModel)]="customer.spouseModel.ocupation" name="ocupation_spouse" value="{{ customer.spouseModel.ocupation }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="sex_spouse">G&eacute;nero: <span class="danger">*</span></label>
+                <select class="form-control custom-select required" id="se_spousex" [(ngModel)]="customer.spouseModel.sex" name="sex_spouse" value="{{ customer.spouseModel.sex }}">
+                                                <option value="MASCULINO">MASCULINO</option>
+                                                <option value="MASCULINO">FEMENINO</option>
+                                            </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="phone_spouse">Tel&eacute;fono: <span class="danger">*</span></label>
+                <input type="text" id="phone_spouse" class="form-control required" placeholder="" [(ngModel)]="customer.spouseModel.phone" name="phone_spouse" value="{{ customer.spouseModel.phone }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="email_spouse">Correo Electr&oacute;nico: <span class="danger">*</span></label>
+                <input type="email" id="email_spouse" class="form-control required" oninput="this.value = this.value.toLowerCase()" placeholder="" [(ngModel)]="customer.spouseModel.email" name="email_spouse" value="{{ customer.spouseModel.email }}">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex flex-row-reverse">
+    <button mat-button matStepperNext (click)="sendCustomer()" class="btn btn-success">Siguiente</button>
+</div>

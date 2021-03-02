@@ -1,0 +1,83 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <!-- .left-right-aside-column-->
+        <div class="contact-page-aside">
+            <!-- .left-aside-column-->
+
+            <!-- /.left-aside-column-->
+            <div class="ñeft-aside">
+                <div class="left-page-header">
+                    <div class="d-md-flex">
+                        <div class="align-self-center">
+                            <h4 class="card-title mt-2">Pagos</h4>
+                        </div>
+                        <!-- <div class="ml-auto">
+                                <input type="text" id="demo-input-search2" placeholder="search contacts" class="form-control"> </div> -->
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table mt-4 table-hover no-wrap contact-list" data-paging="true" data-paging-size="7">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cliente</th>
+                                <th>Fecha Pago</th>
+                                <th>Días Mora</th>
+                                <th>Cuota</th>
+                                <th>Estado</th>
+                                <th align="center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contractGenerate of amortizacion; let i = index">
+                                <td class="{{estado[i]}}">{{ contractGenerate.contrato.code }}</td>
+                                <td class="{{estado[i]}}">{{ contractGenerate.contrato.customer.lastName }} {{ contractGenerate.contrato.customer.name }}</td>
+                                <td class="{{estado[i]}}">{{ fechaPend[i] }}</td>
+                                <td class="{{estado[i]}}">{{ mora[i] }}</td>
+                                <td class="{{estado[i]}}">{{ salpen[i] }}</td>
+                                <td class="{{estado[i]}}">{{ estado[i] }}</td>
+                                <td align="center">
+                                    <a class="btn btn-info text-light" (click)="setContrato(contractGenerate.contrato._id)" data-toggle="modal" data-target="#myModal">
+                                        <!-- <i class="ti-money text-info"></i> -->
+                                        Pagar
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right ml-2" (click)="getAmortizacion()">
+    <i class="ti-share-alt text-white"></i>
+</a>
+
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+
+<div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Monto a pagar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <input #p type="text" value="{{pago}}">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" (click)="setPago(p.value)">Save</button>
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

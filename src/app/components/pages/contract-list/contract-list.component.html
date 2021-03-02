@@ -1,0 +1,88 @@
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-12">
+        <!-- .left-right-aside-column-->
+        <div class="contact-page-aside">
+            <!-- .left-aside-column-->
+
+            <!-- /.left-aside-column-->
+            <div class="ñeft-aside">
+                <div class="left-page-header">
+                    <div class="d-md-flex">
+                        <div class="align-self-center">
+                            <h4 class="card-title mt-2">{{ estado }}</h4>
+                        </div>
+                        <!-- <div class="ml-auto">
+                                <input type="text" id="demo-input-search2" placeholder="search contacts" class="form-control"> </div> -->
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table mt-4 table-hover no-wrap contact-list" data-paging="true" data-paging-size="7">
+                        <thead>
+                            <tr>
+                                <th>C&oacute;digo</th>
+                                <th>Cliente</th>
+                                <th>Email</th>
+                                <th>Tel&eacute;fono</th>
+                                <th>Fecha Cr&eacute;dito</th>
+                                <th>Cr&eacute;dito</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contractGenerate of contractsGenerates">
+                                <td><a [routerLink]="['/contract-list']" (click)="setContractID(contractGenerate.codigo)" data-toggle="modal" data-target="#myModal">{{ contractGenerate.codigo }}</a></td>
+                                <td>{{ contractGenerate.cliente.name }} {{ contractGenerate.cliente.lastName }}</td>
+                                <td>{{ contractGenerate.cliente.email }}</td>
+                                <td>{{ contractGenerate.cliente.phone }}</td>
+                                <td>{{ contractGenerate.fechaCredito | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ contractGenerate.credito.totalCredit }}</td>
+                            </tr>
+                        </tbody>
+                        <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Documentos</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul>
+                                            <li><a href="{{ url }}" (click)="pagarealaordencon()" target="_blank">PAGAR&Eacute; A LA ORDEN CON VENCIMIENTOS SUCESIVOS</a></li>
+                                            <li><a href="{{ url }}" (click)="informacioncompromisoadicionales()" target="_blank">INFORMACI&Oacute;N IMPORTANTE Y COMPROMISOS ADICIONALES</a></li>
+                                            <li><a href="{{ url }}" (click)="declaracionorigenlicito()" target="_blank">DECLARACI&Oacute;N DE ORIGEN L&Iacute;CITO DE RECURSOS Y FONDOS</a></li>
+                                            <li><a href="{{ url }}" (click)="notificaionaceptacioncostas()" target="_blank">NOTIFICACI&Oacute;N Y ACEPTACI&Oacute;N DE COSTAS DE IMPLEMENTACI&Oacute;N DE FINANCIAMIENTO Y GASTOS RELACIONADOS</a></li>
+                                            <li><a href="{{ url }}" (click)="contratosesionderechos()" target="_blank">CONTRATO DE CESI&Oacute;N DE DERECHOS</a></li>
+                                            <li><a href="{{ url }}" (click)="contratocompraventa()" target="_blank">CONTRATO DE COMPRA VENTA CON RESERVA DE DOMINIO</a></li>
+                                            <li><a href="{{ url }}" (click)="autorizacionbloqueo()" target="_blank">AUTORIZACI&Oacute;N DE BLOQUEO VEHICULAR</a></li>
+                                            <li><a href="{{ url }}" (click)="informedecredito()" target="_blank">INFORME DE CR&Eacute;DITO</a></li>
+                                            <li><a href="{{ url }}" (click)="tablaamortizacion()" target="_blank">TABLA DE AMORTIZACI&Oacute;N</a></li>
+                                            <li><a href="{{ url }}" (click)="buroCredito()" target="_blank">AMORTIZACI&Oacute;N PARA REVISAR EL BURO DE CR&Eacute;DITO</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Save</button>
+                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                    </table>
+                </div>
+                <!-- .left-aside-column-->
+            </div>
+            <!-- /.left-right-aside-column-->
+        </div>
+    </div>
+</div>
+
+<a class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right ml-2" [routerLink]="['/contract']" routerLinkActive="router-link-active">
+    <i class="ti-plus text-white"></i>
+</a>
+
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
